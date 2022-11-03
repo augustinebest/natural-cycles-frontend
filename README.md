@@ -12,15 +12,21 @@ kindly follow the step below to run this project locally on your machine for dev
 <strong>NOTE:</strong> make sure you're on the root frontend directory. <br />
 
 #### Step 1
+
 <strong>Install the app</strong>
+
 ```
 npm install
 ```
 
 #### Step 2
+
 <strong>Run the server</strong>
+
 ```
 npm start
 ```
 
 Note: server runs on port `3000`
+
+Check the live version on [https://natural-cycles-auth.herokuapp.com/](https://natural-cycles-auth.herokuapp.com/)
