@@ -132,7 +132,7 @@
   .at-frame > div:nth-child(2) {
     display: flex;
     margin: auto;
-    width: 70%;
+    width: 100%;
     position: absolute;
     left: 0;
     right: 0;
