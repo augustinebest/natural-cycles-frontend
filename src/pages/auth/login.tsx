@@ -70,8 +70,7 @@ const Login = () => {
           setOtpStatus(true)
           toast.success('OTP sent to your phone number', toastObj)
         })
-        .catch((error) => {
-          console.log('ERRRORRR', error.message, error.errors)
+        .catch(() => {
           toast.error('Error ocurred while sending OTP', toastObj)
           setLoading(false)
         })
