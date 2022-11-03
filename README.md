@@ -13,7 +13,7 @@ kindly follow the step below to run this project locally on your machine for dev
 
 #### Step 1
 
-<strong>Install the app</strong>
+<strong>Install the app after Git Clone</strong>
 
 ```
 npm install
