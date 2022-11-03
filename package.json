@@ -21,9 +21,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npx cross-env NODE_ENV=production react-scripts start",
-    "dev": "npx cross-env NODE_ENV=development react-scripts start",
-    "build": "npx cross-env NODE_ENV=production react-scripts build",
+    "start": "cross-env NODE_ENV=production react-scripts start",
+    "dev": "cross-env NODE_ENV=development react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext=jsx,ts,tsx src",
