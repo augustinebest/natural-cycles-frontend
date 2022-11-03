@@ -1,9 +1,6 @@
 import axios from 'axios'
 
-const baseURL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://natural-cycles-app.herokuapp.com'
-    : 'http://localhost:7210'
+const baseURL = 'https://natural-cycles-app.herokuapp.com'
 axios.defaults.baseURL = `${baseURL}/api/user`
 
 class ProcessRequest {
