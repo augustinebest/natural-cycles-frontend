@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../auth/auth.context'
 import Req from '../../api/requesstProcesssor'
 import { ToastContainer, toast } from 'react-toastify'
+import { emailPattern } from '../../utils/contants'
 
 interface IProfile {
   name: string
@@ -50,6 +51,14 @@ const Profile = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    // validation
+    if (details.name.length < 1) {
+      toast.error('Name is required', toastObj)
+      return
+    } else if (!emailPattern.test(details.email)) {
+      toast.error('Invalid email', toastObj)
+      return
+    }
     const payload = {
       name: details.name,
       email: details.email,
