@@ -28,6 +28,7 @@ const Profile = () => {
   const { currentUser } = useContext(AuthContext)
   const [details, setDetails] = useState<IProfile>({ name: '', email: '' })
   const [loading, setLoading] = useState<boolean>(false)
+  const [displayName, setDisplayName] = useState<string>('')
 
   useEffect(() => {
     const getUser = async () => {
@@ -35,6 +36,7 @@ const Profile = () => {
       if (res.status === 200) {
         if (res.data) {
           setDetails({ name: res.data.name, email: res.data.email })
+          setDisplayName(res.data.name)
         }
       } else {
         toast.error(res.message, toastObj)
@@ -67,6 +69,7 @@ const Profile = () => {
     setLoading(true)
     const res = await Req.put('/', payload)
     setLoading(false)
+    setDisplayName(details.name)
     if (res.status === 201) {
       toast.success(res.message, toastObj)
     } else {
@@ -102,9 +105,7 @@ const Profile = () => {
         <div className="pr-details">
           <div>
             <div className="pr-name">
-              {details.email
-                ? `Welcome ${details.name}`
-                : 'Update your profile'}
+              {details.email ? `Welcome ${displayName}` : 'Update your profile'}
             </div>
             <form onSubmit={handleSubmit}>
               <input
