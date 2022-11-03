@@ -75,6 +75,7 @@ const Login = () => {
         })
         .catch(() => {
           toast.error('Error ocurred while sending OTP', toastObj)
+          setLoading(false)
         })
     } else {
       const confirmationResult = window.confirmationResult
