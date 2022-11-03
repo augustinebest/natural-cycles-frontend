@@ -1,0 +1,76 @@
+.pr-header {
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(
+      0deg,
+      rgba(114, 3, 93, 0.5),
+      rgba(114, 3, 93, 0.5)
+    ),
+    url('../../assets/login2.avif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.pr-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 25px;
+}
+
+.pr-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.pr-logout-btn {
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  background-color: rgb(232, 53, 53);
+  color: #fff;
+}
+
+.pr-logout-btn i {
+  margin-right: 4px;
+}
+
+.pr-details {
+  margin-top: 100px;
+}
+
+.pr-details > div {
+  width: 30%;
+  margin: auto;
+}
+
+.pr-name {
+  font-family: open_sauce_one, sans-serif;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.pr-details form input {
+  width: 100%;
+  padding-left: 12px;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.pr-details form button {
+  width: 100%;
+  height: 40px;
+  background-color: rgb(114, 3, 93);
+  color: #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .pr-details > div {
+    width: 80%;
+  }
+}
