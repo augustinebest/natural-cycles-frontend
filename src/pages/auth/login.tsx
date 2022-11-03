@@ -4,7 +4,7 @@ import LOGO from '../../assets/NC_Logo.jpeg'
 import { Navigate } from 'react-router-dom'
 import { authentication } from '../../utils/firebase'
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth'
-import { useCallback, useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import PhoneInput from 'react-phone-input-2'
 import { AuthContext } from './auth.context'
@@ -47,9 +47,6 @@ const Login = () => {
     otp: '',
   })
   const [loading, setLoading] = useState<boolean>(false)
-  const [resend] = useState<boolean>(false)
-  const [count, setCount] = useState<number>(60)
-
   const { currentUser } = useContext(AuthContext)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,16 +91,6 @@ const Login = () => {
 
   const handlePhoneChange = (value: any, country: any, e: any) => {
     setValue({ ...values, [e.target.name]: e.target.value })
-  }
-
-  const memoizedCallback = useCallback(() => {
-    countDown()
-  }, [])
-
-  const countDown = () => {
-    setInterval(() => {
-      setCount((currCount) => currCount - 1)
-    }, 100)
   }
 
   const isValidPhoneNumber = (value: any, country: any) => {
@@ -163,13 +150,6 @@ const Login = () => {
               </button>
               <div id="recaptcha-container"></div>
             </form>
-            <div className="at-footer">
-              <span>Didn&#39;t Receive code?</span>{' '}
-              <button disabled={resend} type="button" onClick={memoizedCallback}>
-                Resend
-              </button>
-              <span>in {`${count}s`}</span>
-            </div>
           </div>
         </div>
       </div>
