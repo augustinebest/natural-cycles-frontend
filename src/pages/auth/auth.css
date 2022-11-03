@@ -1,0 +1,142 @@
+.at-frame {
+  height: 100vh;
+  display: flex;
+}
+
+.at-frame > div:first-child {
+  width: 55%;
+  position: relative;
+  background: linear-gradient(
+      0deg,
+      rgba(114, 3, 93, 0.5),
+      rgba(114, 3, 93, 0.5)
+    ),
+    url('../../assets/login4.avif');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.at-frame > div:nth-child(2) {
+  width: 45%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.at-description {
+  position: absolute;
+  left: 0%;
+  bottom: 70px;
+  right: 0;
+  text-align: center;
+}
+
+.at-description h3,
+.at-description h5 {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: open_sauce_one, sans-serif;
+}
+
+.at-description h3 {
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.at-login-section {
+  width: 70%;
+  margin: auto;
+  bottom: 0;
+  position: relative;
+}
+
+.at-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 25px;
+}
+
+.at-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.at-login {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.at-login-section form {
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+.at-login-section form input,
+.at-login-section form button {
+  width: 100%;
+  height: 40px;
+}
+
+.at-frame .form-control {
+  width: 100%;
+  height: 40px;
+}
+
+.react-tel-input {
+  margin-bottom: 20px;
+}
+
+.at-login-section form input {
+  margin-bottom: 20px;
+  outline: none;
+  padding-left: 12px;
+}
+
+.at-login-section form button {
+  background-color: rgb(114, 3, 93);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.at-footer span {
+  font-size: 13px;
+}
+
+.at-footer span:first-child {
+  font-weight: lighter;
+}
+
+.at-footer button {
+  color: rgb(114, 3, 93);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  background-color: #fff;
+}
+
+.nc-links {
+  text-decoration: none !important;
+  color: rgb(114, 3, 93) !important;
+}
+
+@media (max-width: 800px) {
+  .at-frame {
+    display: block;
+  }
+  .at-frame > div:first-child {
+    display: none;
+  }
+
+  .at-frame > div:nth-child(2) {
+    display: flex;
+    margin: auto;
+    width: 70%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+}
