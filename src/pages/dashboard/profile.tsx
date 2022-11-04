@@ -8,6 +8,7 @@ import { AuthContext } from '../auth/auth.context'
 import Req from '../../api/requesstProcesssor'
 import { ToastContainer, toast } from 'react-toastify'
 import { emailPattern } from '../../utils/contants'
+import Loader from '../../components/loader/loader'
 
 interface IProfile {
   name: string
@@ -29,10 +30,13 @@ const Profile = () => {
   const [details, setDetails] = useState<IProfile>({ name: '', email: '' })
   const [loading, setLoading] = useState<boolean>(false)
   const [displayName, setDisplayName] = useState<string>('')
+  const [pageLoader, setPageLoader] = useState<boolean>(false)
 
   useEffect(() => {
     const getUser = async () => {
+      setPageLoader(true)
       const res = await Req.get(`/${currentUser.phoneNumber}`)
+      setPageLoader(false)
       if (res.status === 200) {
         if (res.data) {
           setDetails({ name: res.data.name, email: res.data.email })
@@ -86,47 +90,58 @@ const Profile = () => {
         // An error happened.
       })
   }
+
   return (
     <>
       <ToastContainer />
-      <div>
-        <div className="pr-header">
-          <div className="pr-logo">
-            <img src={LOGO} alt="LOGO" />
-          </div>
-          <button
-            className="pr-logout-btn"
-            type="button"
-            onClick={handleLogout}
-          >
-            <i className="fas fa-sign-out-alt"></i>logout
-          </button>
-        </div>
-        <div className="pr-details">
-          <div>
-            <div className="pr-name">
-              {details.email ? `Welcome ${displayName}` : 'Update your profile'}
+      {!pageLoader ? (
+        <div>
+          <div className="pr-header">
+            <div className="pr-logo">
+              <img src={LOGO} alt="LOGO" />
             </div>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter your name"
-                value={details.name}
-                onChange={handleChange}
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                value={details.email}
-                onChange={handleChange}
-              />
-              <button type="submit">{loading ? 'Loading...' : 'Save'}</button>
-            </form>
+            <button
+              className="pr-logout-btn"
+              type="button"
+              onClick={handleLogout}
+            >
+              <i className="fas fa-sign-out-alt"></i>logout
+            </button>
+          </div>
+          <div className="pr-phone">
+            <i className="fa fa-phone"></i>
+            <div>{currentUser.phoneNumber}</div>
+          </div>
+          <div className="pr-details">
+            <div>
+              <div className="pr-name">
+                {details.email
+                  ? `Welcome ${displayName}`
+                  : 'Update your profile'}
+              </div>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter your name"
+                  value={details.name}
+                  onChange={handleChange}
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  value={details.email}
+                  onChange={handleChange}
+                />
+                <button type="submit">{loading ? 'Loading...' : 'Save'}</button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <Loader />
+      )}
     </>
   )
 }
