@@ -123,7 +123,7 @@ const Login = () => {
             <div className="at-login">Login your Account</div>
             <form onSubmit={handleSubmit}>
               <PhoneInput
-                country={'ng'}
+                country={'us'}
                 value={values.phoneNumber}
                 onChange={handlePhoneChange}
                 placeholder="Enter your phone number"
