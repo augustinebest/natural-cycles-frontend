@@ -69,6 +69,17 @@
   font-weight: 600;
 }
 
+.pr-phone {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+
+.pr-phone i {
+  margin-right: 5px;
+}
+
 @media (max-width: 700px) {
   .pr-details > div {
     width: 80%;
